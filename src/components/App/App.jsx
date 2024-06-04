@@ -21,12 +21,6 @@ export default function App() {
 
   const [search, setSearch] = useState('');
 
-  const addContact = newContact => {
-    setContacts(prevContacts => {
-      return [...prevContacts, newContact];
-    });
-  };
-
   const deleteContact = contactId => {
     setContacts(prevContacts => {
       return prevContacts.filter(contact => contact.id !== contactId);
@@ -38,7 +32,7 @@ export default function App() {
   return (
     <div className={css.container}>
       <h1 className={css.title}>Phonebook</h1>
-      <ContactForm onAdd={addContact} />
+      <ContactForm />
       <SearchBox value={search} onSearch={setSearch} />
       <ContactList contacts={visibleContacts} onDelete={deleteContact} />
     </div>
